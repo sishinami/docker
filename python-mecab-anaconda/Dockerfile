@@ -39,3 +39,5 @@ ENV PATH $PYENV_ROOT/versions/anaconda3-$ANACONDA_VER/bin:$PATH
 RUN conda update -y conda
 RUN pip install --upgrade pip
 RUN pip install mecab-python3
+RUN ln -fs /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21  /root/.pyenv/versions/anaconda3-4.3.1/lib/libstdc++.so.6
+
