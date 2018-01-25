@@ -1,0 +1,15 @@
+version: "2"
+services:
+  data:
+    build: ./data
+    volumes:
+      - ./workspace:/workspace
+  ide:
+    build: ./ide
+    volumes_from:
+      - data
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "32768:8080"
+    command: node /home/docker/cloud9/server.js --port 8080 -w /workspace -l 0.0.0.0 --auth docker:tcuser
